@@ -1,0 +1,37 @@
+[
+	{
+		"front": "What is asymptotic analysis?",
+		"back": "It is the process of evaluating the efficiency of a program in terms of its input size. It involves using asymptotic notation to express the time or space complexity of a program as a function of the input size.",
+		"type": "text"
+	},
+	{
+		"front": "What is asymptotic notation?",
+		"back": "It is the mathematical notation that describes the limiting behavior of a program as the input size approaches infinity. It's a way of measuring how the time and space taken by a program scales (the growth rate) as the input size increases towards infinity.",
+		"type": "text"
+	},
+	{
+		"front": "Time Complexity of a program",
+		"back": "It's how the time scales as the input size increases.",
+		"type": "text"
+	},
+	{
+		"front": "Space Complexity of a program",
+		"back": "It's how the space taken scales as the input size increases.",
+		"type": "text"
+	},
+	{
+		"front": "Big O notation",
+		"back": "This notation provides the upper bound on the growth rate of a program (time or space). It represents the worst-case scenario.",
+		"type": "text"
+	},
+	{
+		"front": "Big Ω notation",
+		"back": "This notation provides the lower bound on the growth rate of a program (time or space). It represents the best-case scenario.",
+		"type": "text"
+	},
+	{
+		"front": "Big Θ notation",
+		"back": "This notation provides the upper and lower bound on the growth rate of a program (time or space). It represents the average-case scenario.",
+		"type": "text"
+	}
+]
