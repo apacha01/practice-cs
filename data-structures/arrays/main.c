@@ -38,4 +38,7 @@ int main() {
 	printf("\nCapacity: %d. Expected 32.", apector_capacity(aptr));
 	printf("\nCapacity: %d. Expected 16.", apector_capacity(aptr1));
 	printf("\nCapacity: %d. Expected 16.", apector_capacity(aptr2));
+
+	// apector_is_empty test
+	printf("\nIs Empty: %d. Expected 1 (true).", apector_is_empty(aptr));
 }

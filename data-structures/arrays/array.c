@@ -44,3 +44,7 @@ int apector_size(Apector *vp) {
 int apector_capacity(Apector *vp) {
 	return vp->__capacity;
 }
+
+bool apector_is_empty(Apector *vp) {
+	return vp->__size == 0;
+}
