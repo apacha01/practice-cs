@@ -26,7 +26,11 @@ int main() {
 	Apector *aptr1 = apector_new(16);
 	Apector *aptr2 = apector_new(15);
 
+	// apector_new test
 	apector_print(aptr);
 	apector_print(aptr1);
 	apector_print(aptr2);
+
+	// apector_size test
+	printf("Size: %d. Expected 0.", apector_size(aptr));
 }

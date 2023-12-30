@@ -36,3 +36,7 @@ Apector *apector_new(int capacity) {
 	v->__capacity = capacity;
 	v->__size = 0;
 }
+
+int apector_size(Apector *vp) {
+	return vp->__size;
+}
