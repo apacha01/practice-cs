@@ -65,6 +65,17 @@ int main() {
 	printf("\naptr[%d]: %d. Expected 890.", 2, apector_at(aptr, 2));
 	printf("\naptr[%d]: %d. Expected -1.", 3, apector_at(aptr, 3));
 
+	// apector_insert test
+	printf("\n\nInserting 10 into aptr[0]...");
+	apector_insert(aptr, 10, 0);
+	printf("\nInserting 20 into aptr[4]...");
+	apector_insert(aptr, 20, 4);
+	printf("\nInserting 30 into aptr[2]...");
+	apector_insert(aptr, 30, 2);
+	printf("\nInserting 40 into aptr[5]...");
+	apector_insert(aptr, 40, 5);
+	apector_print(aptr);
+
 	// free memory
 	printf("\n\n\nDestroying all vectors...");
 	apector_destroy(aptr);
