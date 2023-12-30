@@ -13,7 +13,9 @@ void apector_print(Apector *vector) {
 
 	printf("Items: [");
 	for (int i = 0; i < vector->__size; ++i) {
-		printf("%d,", *(vector->data + i));
+		printf("%d", *(vector->data + i));
+		if (!(i == vector->__size - 1))
+			printf(",");
 	}
 
 	printf("]");
@@ -35,10 +37,23 @@ int main() {
 	printf("\nSize: %d. Expected 0.", apector_size(aptr));
 
 	// apector_capacity test
-	printf("\nCapacity: %d. Expected 32.", apector_capacity(aptr));
-	printf("\nCapacity: %d. Expected 16.", apector_capacity(aptr1));
-	printf("\nCapacity: %d. Expected 16.", apector_capacity(aptr2));
+	printf("\naptr Capacity: %d. Expected 32.", apector_capacity(aptr));
+	printf("\naptr1 Capacity: %d. Expected 16.", apector_capacity(aptr1));
+	printf("\naptr2 Capacity: %d. Expected 16.", apector_capacity(aptr2));
 
 	// apector_is_empty test
-	printf("\nIs Empty: %d. Expected 1 (true).", apector_is_empty(aptr));
+	printf("\naptr Is Empty: %d. Expected 1 (true).\n", apector_is_empty(aptr));
+
+	// apector_push test
+	printf("\nPushing 1 into aptr...");
+	apector_push(aptr, 1);
+	printf("\nPushing 17 into aptr...");
+	apector_push(aptr, 17);
+	printf("\nPushing 890 into aptr...");
+	apector_push(aptr, 890);
+	apector_print(aptr);
+
+	printf("\naptr Size: %d. Expected 3.", apector_size(aptr));
+	printf("\naptr Capacity: %d. Expected 32.", apector_capacity(aptr));
+	printf("\naptr Is Empty: %d. Expected 0 (false).", apector_is_empty(aptr));
 }

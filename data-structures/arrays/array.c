@@ -48,3 +48,11 @@ int apector_capacity(Apector *vp) {
 bool apector_is_empty(Apector *vp) {
 	return vp->__size == 0;
 }
+
+void apector_push(Apector *vp, int item) {
+	const int new_size = vp->__size + 1;
+	// if (new_size == capacity) resize(vp, capacity * growthFactor)
+
+	*(vp->data + vp->__size) = item;
+	vp->__size = new_size;
+}
