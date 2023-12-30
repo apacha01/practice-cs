@@ -1,6 +1,9 @@
 // Includes
 #include "array.h"
 
+#include <stdbool.h>
+#include <stdio.h>
+
 // Constants
 #define growthRate 2
 #define reductionRate 4
@@ -50,7 +53,10 @@ bool apector_is_empty(Apector *vp) {
 }
 
 int apector_at(Apector *vp, int index) {
-	if (0 > index || index >= vp->__size) return -1;  // exit with index out of bounds?
+	if (0 > index || index >= vp->__size) {
+		printf("\n\n\nIndex %d out of bounds for array of size %d.", index, vp->__size);
+		exit(1);
+	}
 	return *(vp->data + index);
 }
 

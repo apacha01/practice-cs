@@ -51,9 +51,11 @@ int main() {
 	apector_push(aptr, 17);
 	printf("\nPushing 890 into aptr...");
 	apector_push(aptr, 890);
+	printf("\nPushing -1 into aptr...");
+	apector_push(aptr, -1);
 	apector_print(aptr);
 
-	printf("aptr Size: %d. Expected 3.", apector_size(aptr));
+	printf("aptr Size: %d. Expected 4.", apector_size(aptr));
 	printf("\naptr Capacity: %d. Expected 32.", apector_capacity(aptr));
 	printf("\naptr Is Empty: %d. Expected 0 (false).", apector_is_empty(aptr));
 
