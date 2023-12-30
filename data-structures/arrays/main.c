@@ -42,10 +42,10 @@ int main() {
 	printf("\naptr2 Capacity: %d. Expected 16.", apector_capacity(aptr2));
 
 	// apector_is_empty test
-	printf("\naptr Is Empty: %d. Expected 1 (true).\n", apector_is_empty(aptr));
+	printf("\naptr Is Empty: %d. Expected 1 (true).", apector_is_empty(aptr));
 
 	// apector_push test
-	printf("\nPushing 1 into aptr...");
+	printf("\n\nPushing 1 into aptr...");
 	apector_push(aptr, 1);
 	printf("\nPushing 17 into aptr...");
 	apector_push(aptr, 17);
@@ -53,7 +53,13 @@ int main() {
 	apector_push(aptr, 890);
 	apector_print(aptr);
 
-	printf("\naptr Size: %d. Expected 3.", apector_size(aptr));
+	printf("aptr Size: %d. Expected 3.", apector_size(aptr));
 	printf("\naptr Capacity: %d. Expected 32.", apector_capacity(aptr));
 	printf("\naptr Is Empty: %d. Expected 0 (false).", apector_is_empty(aptr));
+
+	// apector_at test
+	printf("\n\naptr[%d]: %d. Expected 1.", 0, apector_at(aptr, 0));
+	printf("\naptr[%d]: %d. Expected 17.", 1, apector_at(aptr, 1));
+	printf("\naptr[%d]: %d. Expected 890.", 2, apector_at(aptr, 2));
+	printf("\naptr[%d]: %d. Expected -1.", 3, apector_at(aptr, 3));
 }

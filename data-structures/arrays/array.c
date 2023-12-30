@@ -49,6 +49,11 @@ bool apector_is_empty(Apector *vp) {
 	return vp->__size == 0;
 }
 
+int apector_at(Apector *vp, int index) {
+	if (0 > index || index >= vp->__size) return -1;  // exit with index out of bounds?
+	return *(vp->data + index);
+}
+
 void apector_push(Apector *vp, int item) {
 	const int new_size = vp->__size + 1;
 	// if (new_size == capacity) resize(vp, capacity * growthFactor)
