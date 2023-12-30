@@ -32,5 +32,10 @@ int main() {
 	apector_print(aptr2);
 
 	// apector_size test
-	printf("Size: %d. Expected 0.", apector_size(aptr));
+	printf("\nSize: %d. Expected 0.", apector_size(aptr));
+
+	// apector_capacity test
+	printf("\nCapacity: %d. Expected 32.", apector_capacity(aptr));
+	printf("\nCapacity: %d. Expected 16.", apector_capacity(aptr1));
+	printf("\nCapacity: %d. Expected 16.", apector_capacity(aptr2));
 }
