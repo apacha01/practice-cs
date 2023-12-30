@@ -1,1 +1,5 @@
 .vscode/
+
+# compoiled files
+**/*.out
+**/main
