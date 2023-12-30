@@ -39,6 +39,9 @@ typedef struct Apacha_Vector {
 // Return a new vector with given capacity's closer power of 2
 Apector *apector_new(int capacity);
 
+// Free all memory
+void apector_destroy(Apector *vp);
+
 // returns the number of elements in the vector
 int apector_size(Apector *vp);
 

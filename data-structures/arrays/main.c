@@ -64,4 +64,10 @@ int main() {
 	printf("\naptr[%d]: %d. Expected 17.", 1, apector_at(aptr, 1));
 	printf("\naptr[%d]: %d. Expected 890.", 2, apector_at(aptr, 2));
 	printf("\naptr[%d]: %d. Expected -1.", 3, apector_at(aptr, 3));
+
+	// free memory
+	printf("\n\n\nDestroying all vectors...");
+	apector_destroy(aptr);
+	apector_destroy(aptr1);
+	apector_destroy(aptr2);
 }

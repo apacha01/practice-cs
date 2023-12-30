@@ -40,6 +40,11 @@ Apector *apector_new(int capacity) {
 	v->__size = 0;
 }
 
+void apector_destroy(Apector *vp) {
+	free(vp->data);
+	free(vp);
+}
+
 int apector_size(Apector *vp) {
 	return vp->__size;
 }
