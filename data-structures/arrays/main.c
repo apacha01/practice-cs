@@ -111,6 +111,24 @@ int main() {
 	printf("\nFind index of value 890 in aptr: %d.", apector_find(aptr, 890));
 	apector_print(aptr);
 
+	// resize test
+	// push 1 'till remaining space is used
+	printf("\n\nPushing elements till space >= capacity ...");
+	int initialSize = apector_size(aptr);
+	int initialCapacity = apector_capacity(aptr);
+	for (int i = 0; i < (initialCapacity - initialSize); i++) {
+		apector_push(aptr, 1);
+	}
+	apector_print(aptr);
+
+	// pop 'till size < capacity / 4
+	printf("\n\nPopping elements till space <= capacity / 4 ...");
+	initialCapacity = apector_capacity(aptr);
+	for (initialSize = apector_size(aptr); initialSize > (initialCapacity / 4); initialSize--) {
+		apector_pop(aptr);
+	}
+	apector_print(aptr);
+
 	// free memory
 	printf("\n\n\nDestroying all vectors...");
 	apector_destroy(aptr);

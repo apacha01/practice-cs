@@ -6,16 +6,16 @@
 #include <string.h>
 
 // Constants
-#define growthRate 2
-#define reductionRate 4
+#define resizeRate 2
+#define shrinkFactor 4
 #define minCapacity 16
 
 // Functions Prototypes
-int getCloserPowerOf2(int n);
+int getClosestPowerOf2(int n);
 void checkIndexValidity(int size, int index);
 
 // Functions Implementation
-int getCloserPowerOf2(int n) {
+int getClosestPowerOf2(int n) {
 	if ((n & (n - 1)) == 0)
 		// already a power of 2
 		return n;
@@ -40,7 +40,7 @@ Apector *apector_new(int capacity) {
 	if (capacity <= minCapacity)
 		capacity = minCapacity;
 	else
-		capacity = getCloserPowerOf2(capacity);
+		capacity = getClosestPowerOf2(capacity);
 
 	Apector *v = malloc(sizeof(Apector));
 
@@ -73,7 +73,8 @@ int apector_at(Apector *vp, int index) {
 
 void apector_push(Apector *vp, int item) {
 	const int new_size = vp->__size + 1;
-	// if (new_size == capacity) resize(vp, capacity * growthFactor)
+	if (new_size >= vp->__capacity)
+		apector_resize(vp, vp->__capacity * resizeRate);
 
 	*(vp->data + vp->__size) = item;
 	vp->__size = new_size;
@@ -82,7 +83,8 @@ void apector_push(Apector *vp, int item) {
 void apector_insert(Apector *vp, int index, int item) {
 	checkIndexValidity(vp->__size, index);
 	const int new_size = vp->__size + 1;
-	// if (new_size == capacity) resize(vp, capacity * growthFactor)
+	if (new_size >= vp->__capacity)
+		apector_resize(vp, vp->__capacity * resizeRate);
 
 	// shift 'index' value and trailing elements to the right
 	// https://www.tutorialspoint.com/c_standard_library/c_function_memmove.htm
@@ -96,14 +98,14 @@ void apector_insert(Apector *vp, int index, int item) {
 }
 
 void apector_prepend(Apector *vp, int item) {
-	// const int new_size = vp->__size + 1;
-	// if (new_size == capacity) resize(vp, capacity * growthFactor)
+	// size check and resize happen on insert function
 	apector_insert(vp, 0, item);
 }
 
 int apector_pop(Apector *vp) {
 	const int new_size = vp->__size - 1;
-	// if (new_size == capacity / 4) resize(vp, capacity / shrinkFactor)
+	if (new_size <= (vp->__capacity / shrinkFactor))
+		apector_resize(vp, vp->__capacity / resizeRate);
 
 	int popped_value = *(vp->data + new_size);
 	vp->__size = new_size;
@@ -113,8 +115,10 @@ int apector_pop(Apector *vp) {
 
 void apector_delete(Apector *vp, int index) {
 	checkIndexValidity(vp->__size, index);
+
 	const int new_size = vp->__size - 1;
-	// if (new_size == capacity) resize(vp, capacity / shrinkFactor)
+	if (new_size <= (vp->__capacity / shrinkFactor))
+		apector_resize(vp, vp->__capacity / resizeRate);
 
 	// delete item at index, shifting all trailing elements left (override the index)
 	// [..., index, ..., n] -> dest: index, src: index + 1 and trailing elements, size: from index to size (size - index)
@@ -145,4 +149,15 @@ int apector_find(Apector *vp, int item) {
 	}
 
 	return res;
+}
+
+void apector_resize(Apector *vp, int new_capacity) {
+	if (new_capacity < minCapacity)
+		new_capacity = minCapacity;
+
+	new_capacity = getClosestPowerOf2(new_capacity);
+	vp->__capacity = new_capacity;
+
+	int *new_data = (int *)realloc(vp->data, sizeof(int) * new_capacity);
+	vp->data = new_data;
 }
