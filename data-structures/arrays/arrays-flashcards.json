@@ -1,0 +1,27 @@
+[
+	{
+		"front": "What is an array?",
+		"back": "Continuous space blocks in memory of the same size indexed with a number from 0 to n.",
+		"type": "text"
+	},
+	{
+		"front": "Time Complexity to Read",
+		"back": "O(1)",
+		"type": "text"
+	},
+	{
+		"front": "Time Complexity to Write",
+		"back": "O(1)",
+		"type": "text"
+	},
+	{
+		"front": "Time Complexity to Insert",
+		"back": "At the end: O(1).\nAt start or middle: O(n).",
+		"type": "text"
+	},
+	{
+		"front": "Time Complexity to Delete",
+		"back": "At the end: O(1).\nAt start or middle: O(n).",
+		"type": "text"
+	}
+]
