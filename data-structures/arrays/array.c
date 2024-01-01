@@ -12,7 +12,7 @@
 
 // Functions Prototypes
 int getCloserPowerOf2(int n);
-void checkIndexValidity(Apector *vp, int index);
+void checkIndexValidity(int size, int index);
 
 // Functions Implementation
 int getCloserPowerOf2(int n) {
@@ -29,9 +29,9 @@ int getCloserPowerOf2(int n) {
 	return value;
 }
 
-void checkIndexValidity(Apector *vp, int index) {
-	if (0 > index || index >= vp->__size) {
-		printf("\n\n\nIndex %d out of bounds for array of size %d.", index, vp->__size);
+void checkIndexValidity(int size, int index) {
+	if (0 > index || index >= size) {
+		printf("\n\n\nIndex %d out of bounds for array of size %d.", index, size);
 		exit(1);
 	}
 }
@@ -67,7 +67,7 @@ bool apector_is_empty(Apector *vp) {
 }
 
 int apector_at(Apector *vp, int index) {
-	checkIndexValidity(vp, index);
+	checkIndexValidity(vp->__size, index);
 	return *(vp->data + index);
 }
 
@@ -80,7 +80,7 @@ void apector_push(Apector *vp, int item) {
 }
 
 void apector_insert(Apector *vp, int index, int item) {
-	checkIndexValidity(vp, index);
+	checkIndexValidity(vp->__size, index);
 	const int new_size = vp->__size + 1;
 	// if (new_size == capacity) resize(vp, capacity * growthFactor)
 
@@ -109,4 +109,16 @@ int apector_pop(Apector *vp) {
 	vp->__size = new_size;
 
 	return popped_value;
+}
+
+void apector_delete(Apector *vp, int index) {
+	checkIndexValidity(vp->__size, index);
+	const int new_size = vp->__size - 1;
+	// if (new_size == capacity) resize(vp, capacity / shrinkFactor)
+
+	// delete item at index, shifting all trailing elements left (override the index)
+	// [..., index, ..., n] -> dest: index, src: index + 1 and trailing elements, size: from index to size (size - index)
+	memmove(vp->data + index, vp->data + index + 1, (vp->__size - index) * sizeof(int));
+
+	vp->__size = new_size;
 }

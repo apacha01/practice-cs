@@ -91,6 +91,15 @@ int main() {
 	printf("\nPopping value from aptr: %d", apector_pop(aptr));
 	apector_print(aptr);
 
+	// apector_delete test
+	printf("\n\nDeleting value in aptr[%d]: %d", 1, apector_at(aptr, 1));
+	apector_delete(aptr, 1);
+	printf("\nDeleting value in aptr[%d]: %d", 5, apector_at(aptr, 5));
+	apector_delete(aptr, 5);
+	printf("\nDeleting value in aptr[%d]: %d", 2, apector_at(aptr, 2));
+	apector_delete(aptr, 2);
+	apector_print(aptr);
+
 	// free memory
 	printf("\n\n\nDestroying all vectors...");
 	apector_destroy(aptr);
