@@ -85,6 +85,12 @@ int main() {
 	apector_prepend(aptr, 30);
 	apector_print(aptr);
 
+	// apector_pop test
+	printf("\n\nPopping value from aptr: %d", apector_pop(aptr));
+	printf("\nPopping value from aptr: %d", apector_pop(aptr));
+	printf("\nPopping value from aptr: %d", apector_pop(aptr));
+	apector_print(aptr);
+
 	// free memory
 	printf("\n\n\nDestroying all vectors...");
 	apector_destroy(aptr);

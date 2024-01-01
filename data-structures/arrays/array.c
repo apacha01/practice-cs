@@ -100,3 +100,13 @@ void apector_prepend(Apector *vp, int item) {
 	// if (new_size == capacity) resize(vp, capacity * growthFactor)
 	apector_insert(vp, 0, item);
 }
+
+int apector_pop(Apector *vp) {
+	const int new_size = vp->__size - 1;
+	// if (new_size == capacity / 4) resize(vp, capacity / shrinkFactor)
+
+	int popped_value = *(vp->data + new_size);
+	vp->__size = new_size;
+
+	return popped_value;
+}
