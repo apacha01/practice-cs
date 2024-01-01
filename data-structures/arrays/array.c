@@ -79,7 +79,7 @@ void apector_push(Apector *vp, int item) {
 	vp->__size = new_size;
 }
 
-void apector_insert(Apector *vp, int item, int index) {
+void apector_insert(Apector *vp, int index, int item) {
 	checkIndexValidity(vp, index);
 	const int new_size = vp->__size + 1;
 	// if (new_size == capacity) resize(vp, capacity * growthFactor)
@@ -93,4 +93,10 @@ void apector_insert(Apector *vp, int item, int index) {
 	// insert item
 	*(vp->data + index) = item;
 	vp->__size = new_size;
+}
+
+void apector_prepend(Apector *vp, int item) {
+	// const int new_size = vp->__size + 1;
+	// if (new_size == capacity) resize(vp, capacity * growthFactor)
+	apector_insert(vp, 0, item);
 }

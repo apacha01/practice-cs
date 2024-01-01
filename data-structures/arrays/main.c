@@ -67,13 +67,22 @@ int main() {
 
 	// apector_insert test
 	printf("\n\nInserting 10 into aptr[0]...");
-	apector_insert(aptr, 10, 0);
+	apector_insert(aptr, 0, 10);
 	printf("\nInserting 20 into aptr[4]...");
-	apector_insert(aptr, 20, 4);
+	apector_insert(aptr, 4, 20);
 	printf("\nInserting 30 into aptr[2]...");
-	apector_insert(aptr, 30, 2);
+	apector_insert(aptr, 2, 30);
 	printf("\nInserting 40 into aptr[5]...");
-	apector_insert(aptr, 40, 5);
+	apector_insert(aptr, 5, 40);
+	apector_print(aptr);
+
+	// apector_prepend test
+	printf("\n\nPrepending 10 into aptr...");
+	apector_prepend(aptr, 10);
+	printf("\nPrepending 20 into aptr...");
+	apector_prepend(aptr, 20);
+	printf("\nPrepending 30 into aptr...");
+	apector_prepend(aptr, 30);
 	apector_print(aptr);
 
 	// free memory
