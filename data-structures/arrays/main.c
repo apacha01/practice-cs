@@ -100,6 +100,11 @@ int main() {
 	apector_delete(aptr, 2);
 	apector_print(aptr);
 
+	// apector_delete test
+	printf("\nRemoving value %d from aptr.", 30);
+	apector_remove(aptr, 30);
+	apector_print(aptr);
+
 	// free memory
 	printf("\n\n\nDestroying all vectors...");
 	apector_destroy(aptr);

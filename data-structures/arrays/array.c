@@ -122,3 +122,14 @@ void apector_delete(Apector *vp, int index) {
 
 	vp->__size = new_size;
 }
+
+void apector_remove(Apector *vp, int item) {
+	for (int i = 0; i < vp->__size; i++) {
+		if (*(vp->data + i) == item) {
+			// size check and resize happen on delete function
+			apector_delete(vp, i);
+			// in case there's 2 consecutive 'item'
+			i--;
+		}
+	}
+}
