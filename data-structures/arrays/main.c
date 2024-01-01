@@ -100,9 +100,15 @@ int main() {
 	apector_delete(aptr, 2);
 	apector_print(aptr);
 
-	// apector_delete test
-	printf("\nRemoving value %d from aptr.", 30);
+	// apector_remove test
+	printf("\n\nRemoving value %d from aptr.", 30);
 	apector_remove(aptr, 30);
+	apector_print(aptr);
+
+	// apector_find test
+	printf("\n\nFind index of value 30 in aptr: %d.", apector_find(aptr, 30));
+	printf("\nFind index of value 10 in aptr: %d.", apector_find(aptr, 10));
+	printf("\nFind index of value 890 in aptr: %d.", apector_find(aptr, 890));
 	apector_print(aptr);
 
 	// free memory

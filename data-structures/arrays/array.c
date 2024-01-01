@@ -133,3 +133,16 @@ void apector_remove(Apector *vp, int item) {
 		}
 	}
 }
+
+int apector_find(Apector *vp, int item) {
+	int res = -1;
+
+	for (int i = 0; i < vp->__size; i++) {
+		if (*(vp->data + i) == item) {
+			res = i;
+			break;
+		}
+	}
+
+	return res;
+}
