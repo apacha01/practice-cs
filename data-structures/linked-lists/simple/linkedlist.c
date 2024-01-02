@@ -223,3 +223,25 @@ void aplist_reverse(Aplist *lp) {
 
 	lp->head = previous;
 }
+
+void aplist_remove_value(Aplist *lp, int value) {
+	isHeadNull(lp, "remove");
+
+	AplistNode *current = lp->head;
+	AplistNode *previous = NULL;
+
+	while (current && current->data != value) {
+		previous = current;
+		current = current->next;
+	}
+
+	if (current) {
+		if (previous)
+			previous->next = current->next;
+		else
+			lp->head = current->next;
+
+		free(current);
+		lp->__size -= 1;
+	}
+}

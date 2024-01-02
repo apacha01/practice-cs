@@ -95,6 +95,14 @@ int main() {
 	aplist_reverse(lptr);
 	aplist_print(lptr);
 
+	printf("\n\nRemoving value %d from lptr...", 10);
+	aplist_remove_value(lptr, 10);
+	printf("\nRemoving value %d from lptr...", 1);
+	aplist_remove_value(lptr, 1);
+	printf("\nRemoving value %d from lptr...", 55);
+	aplist_remove_value(lptr, 55);
+	aplist_print(lptr);
+
 	aplist_destroy(lptr);
 	return 0;
 }
