@@ -16,12 +16,12 @@
 	},
 	{
 		"front": "Time Complexity to Insert",
-		"back": "At the end: O(1).\nAt start or middle: O(n).",
+		"back": "At the end: O(1).\nElsewhere: O(n).",
 		"type": "text"
 	},
 	{
 		"front": "Time Complexity to Delete",
-		"back": "At the end: O(1).\nAt start or middle: O(n).",
+		"back": "At the end: O(1).\nElsewhere: O(n).",
 		"type": "text"
 	}
 ]
