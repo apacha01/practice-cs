@@ -4,7 +4,17 @@
 #include <stdbool.h>
 #include <stdio.h>
 
+// Function Prototypes
+void isIndexValid(Aplist *lp, int index);
+
 // Functions
+void isIndexValid(Aplist *lp, int index) {
+	if (0 > index || index >= lp->__size) {
+		printf("\n\n\nIndex '%d' out of bounds for list of size '%d'", index, lp->__size);
+		exit(1);
+	}
+}
+
 Aplist *aplist_new() {
 	Aplist *lp = malloc(sizeof(Aplist));
 
@@ -33,6 +43,17 @@ int aplist_size(Aplist *lp) {
 
 bool aplist_empty(Aplist *lp) {
 	return lp->__size == 0;
+}
+
+int aplist_value_at(Aplist *lp, int index) {
+	isIndexValid(lp, index);
+
+	AplistNode *current = lp->head;
+	for (int i = 0; i < index && current; i++) {
+		current = current->next;
+	}
+
+	return current->data;
 }
 
 void aplist_push_front(Aplist *lp, int value) {
