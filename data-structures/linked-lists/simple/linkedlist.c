@@ -26,3 +26,7 @@ void aplist_destroy(Aplist *lp) {
 
 	free(lp);
 }
+
+int aplist_size(Aplist *lp) {
+	return lp->__size;
+}

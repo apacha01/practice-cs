@@ -22,7 +22,7 @@
 
 typedef struct Apacha_linked_list_node {
 	int data;
-	struct AplistNode *next;
+	struct Apacha_linked_list_node *next;
 } AplistNode;
 
 typedef struct Apacha_linked_list {
