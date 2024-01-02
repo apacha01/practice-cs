@@ -1,0 +1,17 @@
+[
+	{
+		"front": "What is a stack?",
+		"back": "A LIFO (Last In First Out) data structure that only allows adding or removing at the top of the 'stack'.\nIt has two main operations:\n\t* push: add to the top of the pile\n\t* pop: remove (and return) from the top of the pile\n\t* (optional) top: to read without adding or removing",
+		"type": "text"
+	},
+	{
+		"front": "Time complexity of Inserting",
+		"back": "O(1)",
+		"type": "text"
+	},
+	{
+		"front": "Time complexity of Deleting",
+		"back": "O(1)",
+		"type": "text"
+	}
+]
