@@ -134,4 +134,6 @@ int main() {
 	apector_destroy(aptr);
 	apector_destroy(aptr1);
 	apector_destroy(aptr2);
+
+	return 0;
 }
