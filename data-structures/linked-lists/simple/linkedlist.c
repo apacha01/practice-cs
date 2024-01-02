@@ -186,3 +186,15 @@ void aplist_erase(Aplist *lp, int index) {
 		lp->__size -= 1;
 	}
 }
+
+int aplist_value_n_from_end(Aplist *lp, int n) {
+	isHeadNull(lp, "read");
+	isIndexValid(lp, n);
+
+	AplistNode *current = lp->head;
+	for (int i = 0; i < lp->__size - n - 1; i++) {
+		current = current->next;
+	}
+
+	return current->data;
+}

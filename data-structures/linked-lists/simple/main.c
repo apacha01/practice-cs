@@ -86,6 +86,10 @@ int main() {
 	aplist_erase(lptr, 3);
 	aplist_print(lptr);
 
+	printf("\n\nValue at %d from end: %d", 0, aplist_value_n_from_end(lptr, 0));
+	printf("\nValue at %d from end: %d", 1, aplist_value_n_from_end(lptr, 1));
+	printf("\nValue at %d from end: %d", 2, aplist_value_n_from_end(lptr, 2));
+
 	aplist_destroy(lptr);
 	return 0;
 }
