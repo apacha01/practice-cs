@@ -34,3 +34,16 @@ int aplist_size(Aplist *lp) {
 bool aplist_empty(Aplist *lp) {
 	return lp->__size == 0;
 }
+
+void aplist_push_front(Aplist *lp, int value) {
+	AplistNode *new_node = malloc(sizeof(AplistNode));
+
+	new_node->data = value;
+
+	if (lp->head) {
+		new_node->next = lp->head;
+	}
+
+	lp->head = new_node;
+	lp->__size += 1;
+}

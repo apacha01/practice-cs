@@ -14,7 +14,7 @@ void aplist_print(Aplist *lp) {
 	printf("\n(");
 	while (curr) {
 		printf("%d", curr->data);
-		if (!curr->next) {
+		if (curr->next) {
 			printf(" -> ");
 		}
 		curr = curr->next;
@@ -29,6 +29,16 @@ int main() {
 
 	printf("\nSize of lptr: %d. Expected 0.", aplist_size(lptr));
 	printf("\nisEmpty lptr: %d. Expected 1 (true).", aplist_empty(lptr));
+
+	printf("\n\nPushing %d to lptr's front...", 1);
+	aplist_push_front(lptr, 1);
+	printf("\nPushing %d to lptr's front...", 55);
+	aplist_push_front(lptr, 55);
+	printf("\nPushing %d to lptr's front...", 7);
+	aplist_push_front(lptr, 7);
+	printf("\nPushing %d to lptr's front...", 69);
+	aplist_push_front(lptr, 69);
+	aplist_print(lptr);
 
 	aplist_destroy(lptr);
 	return 0;
