@@ -48,6 +48,16 @@ int main() {
 	printf("\nPopping from lptr front: %d", aplist_pop_front(lptr));
 	aplist_print(lptr);
 
+	printf("\n\nPushing %d to lptr's back...", 10);
+	aplist_push_back(lptr, 10);
+	printf("\nPushing %d to lptr's back...", 20);
+	aplist_push_back(lptr, 20);
+	printf("\nPushing %d to lptr's back...", 19);
+	aplist_push_back(lptr, 19);
+	printf("\nPushing %d to lptr's back...", 984);
+	aplist_push_back(lptr, 984);
+	aplist_print(lptr);
+
 	aplist_destroy(lptr);
 	return 0;
 }

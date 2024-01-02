@@ -83,3 +83,22 @@ int aplist_pop_front(Aplist *lp) {
 
 	return res;
 }
+
+void aplist_push_back(Aplist *lp, int value) {
+	AplistNode *new_node = malloc(sizeof(AplistNode));
+	new_node->data = value;
+	new_node->next = NULL;
+
+	if (!lp->head) {
+		lp->head = new_node;
+	}
+
+	AplistNode *current = lp->head;
+
+	while (current->next) {
+		current = current->next;
+	}
+
+	current->next = new_node;
+	lp->__size += 1;
+}
