@@ -30,3 +30,7 @@ void aplist_destroy(Aplist *lp) {
 int aplist_size(Aplist *lp) {
 	return lp->__size;
 }
+
+bool aplist_empty(Aplist *lp) {
+	return lp->__size == 0;
+}

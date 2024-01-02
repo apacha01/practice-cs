@@ -27,7 +27,8 @@ int main() {
 	Aplist *lptr = aplist_new();
 	aplist_print(lptr);
 
-	printf("Size of lptr: %d. Expected 0.", aplist_size(lptr));
+	printf("\nSize of lptr: %d. Expected 0.", aplist_size(lptr));
+	printf("\nisEmpty lptr: %d. Expected 1 (true).", aplist_empty(lptr));
 
 	aplist_destroy(lptr);
 	return 0;
