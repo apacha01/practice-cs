@@ -3,6 +3,7 @@
 
 #include <stdbool.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 // Function Prototypes
 void isIndexValid(Aplist *lp, int index);
@@ -142,4 +143,24 @@ int aplist_back(Aplist *lp) {
 	}
 
 	return current->data;
+}
+
+void aplist_insert(Aplist *lp, int index, int value) {
+	isIndexValid(lp, index);
+
+	if (lp->__size == 0 || index == 0) {
+		aplist_push_front(lp, value);
+	} else {
+		AplistNode *current = lp->head;
+		AplistNode *new_node = malloc(sizeof(AplistNode));
+
+		for (int i = 0; i < index - 1; i++) {
+			current = current->next;
+		}
+
+		new_node->data = value;
+		new_node->next = current->next;
+		current->next = new_node;
+		lp->__size += 1;
+	}
 }

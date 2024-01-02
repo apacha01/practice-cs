@@ -66,6 +66,16 @@ int main() {
 	printf("\n\nReading from lptr's front: %d", aplist_front(lptr));
 	printf("\n\nReading from lptr's back: %d", aplist_back(lptr));
 
+	printf("\n\nInserting into lptr[%d]: %d", 0, 100);
+	aplist_insert(lptr, 0, 100);
+	printf("\nInserting into lptr[%d]: %d", 1, 200);
+	aplist_insert(lptr, 1, 200);
+	printf("\nInserting into lptr[%d]: %d", aplist_size(lptr) - 1, 300);
+	aplist_insert(lptr, aplist_size(lptr) - 1, 300);
+	printf("\nInserting into lptr[%d]: %d", 3, 400);
+	aplist_insert(lptr, 3, 400);
+	aplist_print(lptr);
+
 	aplist_destroy(lptr);
 	return 0;
 }
