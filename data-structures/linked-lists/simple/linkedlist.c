@@ -200,8 +200,26 @@ int aplist_value_n_from_end(Aplist *lp, int n) {
 }
 
 void aplist_reverse(Aplist *lp) {
-	for (int i = 0; i < lp->__size - 1; i++) {
-		aplist_push_front(lp, aplist_value_at(lp, i + 1));
-		aplist_erase(lp, i + 2);
+	// My solution
+	// for loop: O(n) - push_front: O(1) - value_at: O(n) - erase O(n)
+	// Each iteration involves aplist_value_at [O(n)], aplist_push_front [O(1)], and aplist_erase [O(n)], so overall time complexity is O(n²).
+	//  for (int i = 0; i < lp->__size - 1; i++) {
+	//  	aplist_push_front(lp, aplist_value_at(lp, i + 1));
+	//  	aplist_erase(lp, i + 2);
+	//  }
+
+	// O(n) solution
+	// https://medium.com/geekculture/how-to-reverse-a-linked-list-with-animated-examples-80dbde28bb7f
+	AplistNode *current = lp->head;
+	AplistNode *previous = NULL;
+	AplistNode *next;
+
+	while (current) {
+		next = current->next;
+		current->next = previous;
+		previous = current;
+		current = next;
 	}
+
+	lp->head = previous;
 }
