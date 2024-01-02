@@ -1,12 +1,12 @@
 [
 	{
 		"front": "What is a simply linked list?",
-		"back": "A data type made up of 'nodes', where each node has:\n\t* Data\n\t* A reference to the next node in the list",
+		"back": "A data structure made up of 'nodes', where each node has:\n\t* Data\n\t* A reference to the next node in the list",
 		"type": "text"
 	},
 	{
 		"front": "What is a doubly linked list?",
-		"back": "A data type made up of 'nodes', where each node has:\n\t* Data\n\t* A reference to the next node in the list\n\t* A reference to the previous node in the list",
+		"back": "A data structure made up of 'nodes', where each node has:\n\t* Data\n\t* A reference to the next node in the list\n\t* A reference to the previous node in the list",
 		"type": "text"
 	},
 	{
