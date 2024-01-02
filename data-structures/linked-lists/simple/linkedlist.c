@@ -132,3 +132,14 @@ int aplist_front(Aplist *lp) {
 	isHeadNull(lp, "read");
 	return lp->head->data;
 }
+
+int aplist_back(Aplist *lp) {
+	isHeadNull(lp, "read");
+
+	AplistNode *current = lp->head;
+	while (current->next) {
+		current = current->next;
+	}
+
+	return current->data;
+}

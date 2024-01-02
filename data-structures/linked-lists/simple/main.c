@@ -64,6 +64,7 @@ int main() {
 	aplist_print(lptr);
 
 	printf("\n\nReading from lptr's front: %d", aplist_front(lptr));
+	printf("\n\nReading from lptr's back: %d", aplist_back(lptr));
 
 	aplist_destroy(lptr);
 	return 0;
