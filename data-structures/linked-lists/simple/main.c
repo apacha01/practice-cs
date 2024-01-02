@@ -76,6 +76,16 @@ int main() {
 	aplist_insert(lptr, 3, 400);
 	aplist_print(lptr);
 
+	printf("\n\nErasing node at lptr[%d]...", 0);
+	aplist_erase(lptr, 0);
+	printf("\nErasing node at lptr[%d]...", 2);
+	aplist_erase(lptr, 2);
+	printf("\nErasing node at lptr[%d]...", aplist_size(lptr) - 1);
+	aplist_erase(lptr, aplist_size(lptr) - 1);
+	printf("\nErasing node at lptr[%d]...", 3);
+	aplist_erase(lptr, 3);
+	aplist_print(lptr);
+
 	aplist_destroy(lptr);
 	return 0;
 }

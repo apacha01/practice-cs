@@ -164,3 +164,25 @@ void aplist_insert(Aplist *lp, int index, int value) {
 		lp->__size += 1;
 	}
 }
+
+void aplist_erase(Aplist *lp, int index) {
+	isHeadNull(lp, "erase");
+	isIndexValid(lp, index);
+
+	if (index == 0) {
+		aplist_pop_front(lp);
+	} else {
+		AplistNode *current = lp->head;
+		AplistNode *tmp;
+
+		for (int i = 0; i < index - 1; i++) {
+			current = current->next;
+		}
+
+		tmp = current->next;
+		current->next = current->next->next;
+		free(tmp);
+
+		lp->__size -= 1;
+	}
+}
