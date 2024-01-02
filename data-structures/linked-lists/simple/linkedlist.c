@@ -198,3 +198,10 @@ int aplist_value_n_from_end(Aplist *lp, int n) {
 
 	return current->data;
 }
+
+void aplist_reverse(Aplist *lp) {
+	for (int i = 0; i < lp->__size - 1; i++) {
+		aplist_push_front(lp, aplist_value_at(lp, i + 1));
+		aplist_erase(lp, i + 2);
+	}
+}
