@@ -1,22 +1,42 @@
 [
 	{
-		"front": "What is a linked list?",
+		"front": "What is a simply linked list?",
 		"back": "A data type made up of 'nodes', where each node has:\n\t* Data\n\t* A reference to the next node in the list",
 		"type": "text"
 	},
 	{
-		"front": "Time Complexity to Read",
+		"front": "What is a doubly linked list?",
+		"back": "A data type made up of 'nodes', where each node has:\n\t* Data\n\t* A reference to the next node in the list\n\t* A reference to the previous node in the list",
+		"type": "text"
+	},
+	{
+		"front": "Time Complexity to Read in SLL (assume there's a tail pointer)",
 		"back": "O(n)",
 		"type": "text"
 	},
 	{
-		"front": "Time Complexity to Write/Insert",
+		"front": "Time Complexity to Write/Insert in SLL (assume there's a tail pointer)",
 		"back": "At the beginning: O(1).\nElsewhere: O(n).",
 		"type": "text"
 	},
 	{
-		"front": "Time Complexity to Delete",
+		"front": "Time Complexity to Delete in SLL (assume there's a tail pointer)",
 		"back": "At the beginning: O(1).\nElsewhere: O(n).",
+		"type": "text"
+	},
+	{
+		"front": "Time Complexity to Read in DLL (assume there's a tail pointer)",
+		"back": "O(n)",
+		"type": "text"
+	},
+	{
+		"front": "Time Complexity to Write/Insert in DLL (assume there's a tail pointer)",
+		"back": "At the beginning: O(1).\nAt the end: O(1).\nElsewhere: O(n).",
+		"type": "text"
+	},
+	{
+		"front": "Time Complexity to Delete in DLL (assume there's a tail pointer)",
+		"back": "At the beginning: O(1).\nAt the end: O(1).\nElsewhere: O(n).",
 		"type": "text"
 	}
 ]
