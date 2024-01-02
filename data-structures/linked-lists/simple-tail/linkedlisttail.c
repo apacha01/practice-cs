@@ -1,0 +1,272 @@
+// Includes
+#include "linkedlisttail.h"
+
+#include <stdbool.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+// Function Prototypes
+void isIndexValid(Aplist *lp, int index);
+void isHeadNull(Aplist *lp, char *operation);
+
+// Functions
+void isIndexValid(Aplist *lp, int index) {
+	if (0 > index || index >= lp->__size) {
+		printf("\n\n\nIndex '%d' out of bounds for list of size '%d'", index, lp->__size);
+		exit(1);
+	}
+}
+
+void isHeadNull(Aplist *lp, char *operation) {
+	if (lp->head == NULL) {
+		printf("\n\n\nCan not %s from an emtpy list.", operation);
+		exit(1);
+	}
+}
+
+Aplist *aplist_new() {
+	Aplist *lp = malloc(sizeof(Aplist));
+
+	lp->__size = 0;
+	lp->head = NULL;
+	lp->tail = NULL;
+
+	return lp;
+}
+
+void aplist_destroy(Aplist *lp) {
+	AplistNode *current = lp->head;
+	AplistNode *next;
+
+	while (current) {
+		next = current->next;
+		free(current);
+		current = next;
+	}
+
+	free(lp);
+}
+
+int aplist_size(Aplist *lp) {
+	return lp->__size;
+}
+
+bool aplist_empty(Aplist *lp) {
+	return lp->__size == 0;
+}
+
+int aplist_value_at(Aplist *lp, int index) {
+	isIndexValid(lp, index);
+
+	AplistNode *current = lp->head;
+	for (int i = 0; i < index && current; i++) {
+		current = current->next;
+	}
+
+	return current->data;
+}
+
+void aplist_push_front(Aplist *lp, int value) {
+	AplistNode *new_node = malloc(sizeof(AplistNode));
+
+	new_node->data = value;
+
+	if (lp->head) {
+		new_node->next = lp->head;
+	}
+
+	lp->head = new_node;
+	if (!lp->tail)
+		lp->tail = new_node;
+
+	lp->__size += 1;
+}
+
+int aplist_pop_front(Aplist *lp) {
+	isHeadNull(lp, "pop");
+
+	AplistNode *tmp = lp->head;
+	int res = lp->head->data;
+	lp->head = lp->head->next;
+
+	if (lp->tail == tmp)
+		lp->tail = lp->head;
+
+	free(tmp);
+
+	lp->__size -= 1;
+
+	return res;
+}
+
+void aplist_push_back(Aplist *lp, int value) {
+	AplistNode *new_node = malloc(sizeof(AplistNode));
+	new_node->data = value;
+	new_node->next = NULL;
+
+	if (!lp->head) {
+		lp->head = new_node;
+		lp->tail = new_node;
+	} else {
+		lp->tail->next = new_node;
+		lp->tail = new_node;
+	}
+
+	lp->__size += 1;
+}
+
+int aplist_pop_back(Aplist *lp) {
+	isHeadNull(lp, "pop");
+	int res;
+
+	if (lp->head && lp->head == lp->tail) {
+		res = lp->head->data;
+		free(lp->head);
+
+		lp->head = NULL;
+		lp->tail = NULL;
+	} else {
+		AplistNode *current = lp->head;
+		AplistNode *aux;
+
+		while (current->next != lp->tail) {
+			current = current->next;
+		}
+
+		res = current->next->data;
+		aux = current->next;
+		lp->tail = current;
+		current->next = NULL;
+
+		free(aux);
+	}
+
+	lp->__size -= 1;
+
+	return res;
+}
+
+int aplist_front(Aplist *lp) {
+	isHeadNull(lp, "read");
+	return lp->head->data;
+}
+
+int aplist_back(Aplist *lp) {
+	isHeadNull(lp, "read");
+	return lp->tail->data;
+}
+
+void aplist_insert(Aplist *lp, int index, int value) {
+	isIndexValid(lp, index);
+
+	if (lp->__size == 0 || index == 0) {
+		aplist_push_front(lp, value);
+	} else {
+		AplistNode *current = lp->head;
+		AplistNode *new_node = malloc(sizeof(AplistNode));
+
+		for (int i = 0; i < index - 1; i++) {
+			current = current->next;
+		}
+
+		new_node->data = value;
+		new_node->next = current->next;
+		current->next = new_node;
+		lp->__size += 1;
+	}
+}
+
+void aplist_erase(Aplist *lp, int index) {
+	isHeadNull(lp, "erase");
+	isIndexValid(lp, index);
+
+	if (index == 0) {
+		aplist_pop_front(lp);
+	} else {
+		AplistNode *current = lp->head;
+		AplistNode *tmp;
+
+		for (int i = 0; i < index - 1; i++) {
+			current = current->next;
+		}
+
+		if (current->next == lp->tail)
+			lp->tail = current;
+
+		tmp = current->next;
+		current->next = current->next->next;
+		free(tmp);
+
+		lp->__size -= 1;
+	}
+}
+
+int aplist_value_n_from_end(Aplist *lp, int n) {
+	isHeadNull(lp, "read");
+	isIndexValid(lp, n);
+
+	if (n == 0) {
+		return lp->tail->data;
+	}
+
+	AplistNode *current = lp->head;
+	for (int i = 0; i < lp->__size - n - 1; i++) {
+		current = current->next;
+	}
+
+	return current->data;
+}
+
+void aplist_reverse(Aplist *lp) {
+	// My solution
+	// for loop: O(n) - push_front: O(1) - value_at: O(n) - erase O(n)
+	// Each iteration involves aplist_value_at [O(n)], aplist_push_front [O(1)], and aplist_erase [O(n)], so overall time complexity is O(n²).
+	//  for (int i = 0; i < lp->__size - 1; i++) {
+	//  	aplist_push_front(lp, aplist_value_at(lp, i + 1));
+	//  	aplist_erase(lp, i + 2);
+	//  }
+
+	// O(n) solution
+	// https://medium.com/geekculture/how-to-reverse-a-linked-list-with-animated-examples-80dbde28bb7f
+	AplistNode *current = lp->head;
+	AplistNode *previous = NULL;
+	AplistNode *next;
+
+	lp->tail = lp->head;
+
+	while (current) {
+		next = current->next;
+		current->next = previous;
+		previous = current;
+		current = next;
+	}
+
+	lp->head = previous;
+}
+
+void aplist_remove_value(Aplist *lp, int value) {
+	isHeadNull(lp, "remove");
+
+	AplistNode *current = lp->head;
+	AplistNode *previous = NULL;
+
+	while (current && current->data != value) {
+		previous = current;
+		current = current->next;
+	}
+
+	if (current) {
+		if (previous) {
+			previous->next = current->next;
+			if (current == lp->tail)
+				lp->tail = previous;
+		} else {
+			lp->head = current->next;
+			if (current == lp->tail)
+				lp->tail = NULL;
+		}
+
+		free(current);
+		lp->__size -= 1;
+	}
+}
