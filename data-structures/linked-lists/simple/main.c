@@ -44,6 +44,10 @@ int main() {
 	printf("\nValue at lptr[%d]: %d", 1, aplist_value_at(lptr, 1));
 	printf("\nValue at lptr[%d]: %d", 2, aplist_value_at(lptr, 2));
 
+	printf("\n\nPopping from lptr front: %d", aplist_pop_front(lptr));
+	printf("\nPopping from lptr front: %d", aplist_pop_front(lptr));
+	aplist_print(lptr);
+
 	aplist_destroy(lptr);
 	return 0;
 }

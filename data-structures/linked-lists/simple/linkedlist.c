@@ -68,3 +68,18 @@ void aplist_push_front(Aplist *lp, int value) {
 	lp->head = new_node;
 	lp->__size += 1;
 }
+
+int aplist_pop_front(Aplist *lp) {
+	if (!lp->head) {
+		printf("\n\n\nCan not pop from empty list.");
+		exit(1);
+	}
+
+	AplistNode *tmp = lp->head;
+	int res = lp->head->data;
+	lp->head = lp->head->next;
+	free(tmp);
+	lp->__size -= 1;
+
+	return res;
+}
