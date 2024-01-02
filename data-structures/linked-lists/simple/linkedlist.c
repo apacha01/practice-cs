@@ -6,11 +6,19 @@
 
 // Function Prototypes
 void isIndexValid(Aplist *lp, int index);
+void isHeadNull(Aplist *lp, char *operation);
 
 // Functions
 void isIndexValid(Aplist *lp, int index) {
 	if (0 > index || index >= lp->__size) {
 		printf("\n\n\nIndex '%d' out of bounds for list of size '%d'", index, lp->__size);
+		exit(1);
+	}
+}
+
+void isHeadNull(Aplist *lp, char *operation) {
+	if (lp->head == NULL) {
+		printf("\n\n\nCan not %s from an emtpy list.", operation);
 		exit(1);
 	}
 }
@@ -70,10 +78,7 @@ void aplist_push_front(Aplist *lp, int value) {
 }
 
 int aplist_pop_front(Aplist *lp) {
-	if (!lp->head) {
-		printf("\n\n\nCan not pop from empty list.");
-		exit(1);
-	}
+	isHeadNull(lp, "pop");
 
 	AplistNode *tmp = lp->head;
 	int res = lp->head->data;
@@ -104,10 +109,7 @@ void aplist_push_back(Aplist *lp, int value) {
 }
 
 int aplist_pop_back(Aplist *lp) {
-	if (!lp->head) {
-		printf("\n\n\nCan not pop from an empty list.");
-		exit(1);
-	}
+	isHeadNull(lp, "pop");
 
 	AplistNode *current = lp->head;
 	AplistNode *aux;
@@ -124,4 +126,9 @@ int aplist_pop_back(Aplist *lp) {
 	lp->__size -= 1;
 
 	return res;
+}
+
+int aplist_front(Aplist *lp) {
+	isHeadNull(lp, "read");
+	return lp->head->data;
 }

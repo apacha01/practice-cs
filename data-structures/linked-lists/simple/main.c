@@ -63,6 +63,8 @@ int main() {
 	printf("\nPopping from lptr's back: %d", aplist_pop_back(lptr));
 	aplist_print(lptr);
 
+	printf("\n\nReading from lptr's front: %d", aplist_front(lptr));
+
 	aplist_destroy(lptr);
 	return 0;
 }
