@@ -58,6 +58,11 @@ int main() {
 	aplist_push_back(lptr, 984);
 	aplist_print(lptr);
 
+	printf("\n\nPopping from lptr's back: %d", aplist_pop_back(lptr));
+	printf("\nPopping from lptr's back: %d", aplist_pop_back(lptr));
+	printf("\nPopping from lptr's back: %d", aplist_pop_back(lptr));
+	aplist_print(lptr);
+
 	aplist_destroy(lptr);
 	return 0;
 }

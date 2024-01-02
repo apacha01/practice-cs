@@ -102,3 +102,26 @@ void aplist_push_back(Aplist *lp, int value) {
 	current->next = new_node;
 	lp->__size += 1;
 }
+
+int aplist_pop_back(Aplist *lp) {
+	if (!lp->head) {
+		printf("\n\n\nCan not pop from an empty list.");
+		exit(1);
+	}
+
+	AplistNode *current = lp->head;
+	AplistNode *aux;
+
+	while (current->next->next) {
+		current = current->next;
+	}
+
+	int res = current->next->data;
+	aux = current->next;
+	current->next = NULL;
+	free(aux);
+
+	lp->__size -= 1;
+
+	return res;
+}
