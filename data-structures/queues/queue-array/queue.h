@@ -28,12 +28,12 @@ void apueue_destroy(Apueue *qp);
 void apueue_enqueue(Apueue *qp, int value);
 
 //  returns value and removes least recently added element
-void apueue_dequeue(Apueue *qp);
+int apueue_dequeue(Apueue *qp);
 
 // true if queue is empty, false otherwise
-void apueue_empty(Apueue *qp);
+bool apueue_empty(Apueue *qp);
 
 // true if queue is full, false otherwise
-void apueue_full(Apueue *qp);
+bool apueue_full(Apueue *qp);
 
 #endif	// APACHA_QUEUE
