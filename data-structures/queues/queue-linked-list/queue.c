@@ -41,3 +41,25 @@ void apueue_enqueue(Apueue *qp, int value) {
 		qp->tail = new_node;
 	}
 }
+
+int apueue_dequeue(Apueue *qp) {
+	if (!qp->head) {
+		printf("\n\n\nCan not dequeue from empty list");
+		exit(1);
+	}
+
+	ApueueNode *tmp = qp->head;
+	int res = qp->head->data;
+	qp->head = qp->head->next;
+
+	if (qp->tail == tmp)
+		qp->tail = qp->head;
+
+	free(tmp);
+
+	return res;
+}
+
+bool apueue_empty(Apueue *qp) {
+	return qp->head == NULL;
+}
