@@ -8,10 +8,10 @@
 // Auxiliary Print
 void apueue_print(Apueue *qp) {
 	printf("\n****************************************\n");
-	printf("Empty: %d\t-\tFull: %d", qp->read == qp->write, qp->read - 1 == qp->write);
+	printf("Empty: %d\t-\tFull: %d", apueue_empty(qp), apueue_full(qp));
 	printf("\nRead Index: %d\t-\tWrite Index: %d", qp->read, qp->write);
 	printf("\n[");
-	for (int i = qp->read; i != qp->write; i = (i + 1) % QUEUE_SIZE) {
+	for (int i = qp->read; i != qp->write; i = (i + 1) % (QUEUE_SIZE + 1)) {
 		printf("%d", *(qp->data + i));
 		if (i != qp->write - 1) {
 			printf(", ");
@@ -38,6 +38,30 @@ int main() {
 	printf("\nDequeueing from qptr: %d", apueue_dequeue(qptr));
 	apueue_print(qptr);
 	printf("Dequeueing from qptr: %d", apueue_dequeue(qptr));
+	apueue_print(qptr);
+
+	// printf("Dequeueing from qptr: %d", apueue_dequeue(qptr)); // Exits with error
+
+	printf("\nEnqueuing 456 into qptr...");
+	apueue_enqueue(qptr, 456);
+	printf("\nEnqueuing 456 into qptr...");
+	apueue_enqueue(qptr, 456);
+	printf("\nEnqueuing 456 into qptr...");
+	apueue_enqueue(qptr, 456);
+	printf("\nEnqueuing 456 into qptr...");
+	apueue_enqueue(qptr, 456);
+	printf("\nEnqueuing 456 into qptr...");
+	apueue_enqueue(qptr, 456);
+	printf("\nEnqueuing 456 into qptr...");
+	apueue_enqueue(qptr, 456);
+	printf("\nEnqueuing 456 into qptr...");
+	apueue_enqueue(qptr, 456);
+	printf("\nEnqueuing 456 into qptr...");
+	apueue_enqueue(qptr, 456);
+	printf("\nEnqueuing 456 into qptr...");
+	apueue_enqueue(qptr, 456);
+	printf("\nEnqueuing 456 into qptr...");
+	apueue_enqueue(qptr, 456);
 	apueue_print(qptr);
 
 	apueue_destroy(qptr);
