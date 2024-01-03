@@ -2,7 +2,7 @@
 #define APACHA_QUEUE
 
 /*
- https://github.com/jwasham/coding-interview-university#arrays
+	https://github.com/jwasham/coding-interview-university#queue
 	Implement using a fixed-sized array:
 		enqueue(value) - adds item at end of available storage
 		dequeue() - returns value and removes least recently added element
