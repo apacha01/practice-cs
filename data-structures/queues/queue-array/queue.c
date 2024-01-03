@@ -30,3 +30,9 @@ void apueue_enqueue(Apueue *qp, int value) {
 	*(qp->data + qp->write) = value;
 	qp->write = increaseIndex(qp->write);
 }
+
+int apueue_dequeue(Apueue *qp) {
+	int res = *(qp->data + qp->read);
+	qp->read = increaseIndex(qp->read);
+	return res;
+}

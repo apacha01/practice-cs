@@ -26,9 +26,18 @@ int main() {
 	Apueue *qptr = apueue_new();
 	apueue_print(qptr);
 
+	printf("\n\nEnqueuing 1 into qptr...");
 	apueue_enqueue(qptr, 1);
+	printf("\nEnqueuing 3 into qptr...");
 	apueue_enqueue(qptr, 3);
+	printf("\nEnqueuing 456 into qptr...");
 	apueue_enqueue(qptr, 456);
+	apueue_print(qptr);
+
+	printf("\n\nDequeueing from qptr: %d", apueue_dequeue(qptr));
+	printf("\nDequeueing from qptr: %d", apueue_dequeue(qptr));
+	apueue_print(qptr);
+	printf("Dequeueing from qptr: %d", apueue_dequeue(qptr));
 	apueue_print(qptr);
 
 	apueue_destroy(qptr);
