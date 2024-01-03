@@ -1,0 +1,17 @@
+[
+	{
+		"front": "What is a queue?",
+		"back": "A FIFO (First In First Out) data structure on which the following operation can be made:\n\t* enqueue: add a value to the queue\n\t* dequeue: remove and read the first value added to the queue\n\t* empty: check if queue is empty",
+		"type": "text"
+	},
+	{
+		"front": "Time complexity to Read",
+		"back": "O(1)",
+		"type": "text"
+	},
+	{
+		"front": "Time complexity to Write",
+		"back": "O(1)",
+		"type": "text"
+	}
+]
