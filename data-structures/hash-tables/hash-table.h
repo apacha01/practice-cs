@@ -27,24 +27,24 @@ typedef struct Apacha_Hash_Table {
 } ApashTable;
 
 // Return a new hash table
-ApashTable *apash_new();
+ApashTable *apash_new(int capacity);
 
 // Free all memory
 void apash_destroy(ApashTable *hp);
 
 // hash given key, m is the size of the hash table
-int apash_hash(k, m);
+int apash_hash(ApashTable *hp, char *k, int m);
 
 // adds key/value pair, if the key already exists, update value
-void apash_add(key, value);
+void apash_add(ApashTable *hp, char *key, int value);
 
 // true if key exists, false otherwise
-bool apash_exists(key);
+bool apash_exists(ApashTable *hp, char *key);
 
 // return value of given key
-int apash_get(key);
+int apash_get(ApashTable *hp, char *key);
 
 // removes key/value pair from table
-void apash_remove(key);
+void apash_remove(ApashTable *hp, char *key);
 
 #endif	// APACHA_HASH_TABLE
