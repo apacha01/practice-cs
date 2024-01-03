@@ -34,5 +34,17 @@ int main() {
 	printf("\nHashing key '%s' with capacity '%d': %d", "def", hptr->__capacity, apash_hash("def", hptr->__capacity));
 	printf("\nHashing key '%s' with capacity '%d': %d", "123", hptr->__capacity, apash_hash("123", hptr->__capacity));
 
+	printf("\n\nAdding {key: %s, value: %d} to hptr...", "123", 123);
+	apash_add(hptr, "123", 123);
+	printf("\nAdding {key: %s, value: %d} to hptr...", "456", 456);
+	apash_add(hptr, "456", 456);
+	printf("\nAdding {key: %s, value: %d} to hptr...", "789", 789);
+	apash_add(hptr, "789", 789);
+	apash_print(hptr);
+
+	printf("\n\nAdding {key: %s, value: %d} to hptr...", "789", 987);
+	apash_add(hptr, "789", 987);
+	apash_print(hptr);
+
 	return 0;
 }
