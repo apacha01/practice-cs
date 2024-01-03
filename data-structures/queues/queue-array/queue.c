@@ -25,3 +25,8 @@ Apueue *apueue_new() {
 void apueue_destroy(Apueue *qp) {
 	free(qp);
 }
+
+void apueue_enqueue(Apueue *qp, int value) {
+	*(qp->data + qp->write) = value;
+	qp->write = increaseIndex(qp->write);
+}
