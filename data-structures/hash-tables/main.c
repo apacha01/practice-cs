@@ -46,5 +46,9 @@ int main() {
 	apash_add(hptr, "789", 987);
 	apash_print(hptr);
 
+	// printf("\n\nAdding {key: %s, value: %d} to hptr...", NULL, 987);
+	// apash_add(hptr, NULL, 987);	// THROWS ERROR: Key can not be NULL.
+	//													key: (null)
+
 	return 0;
 }

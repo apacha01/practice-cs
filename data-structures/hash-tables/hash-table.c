@@ -5,7 +5,17 @@
 #include <stdio.h>
 #include <string.h>
 
+// Functions prototypes
+void checkKey(char *key);
+
 // Functions Implementation
+void checkKey(char *key) {
+	if (key) return;
+
+	printf("\n\n\nKey can not be NULL.\n\tkey: %s", key);
+	exit(1);
+}
+
 ApashTable *apash_new(int capacity) {
 	if (capacity < 1) capacity = DEFAULT_TABLE_SIZE;
 
@@ -31,6 +41,7 @@ void apash_destroy(ApashTable *hp) {
 }
 
 unsigned int apash_hash(char *key, int capacity) {
+	checkKey(key);
 	unsigned int hash = 0;
 
 	for (int i = 0; i < strlen(key); i++) {
