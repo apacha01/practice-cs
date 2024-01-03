@@ -27,3 +27,17 @@ void apueue_destroy(Apueue *qp) {
 
 	free(qp);
 }
+
+void apueue_enqueue(Apueue *qp, int value) {
+	ApueueNode *new_node = malloc(sizeof(ApueueNode));
+	new_node->data = value;
+	new_node->next = NULL;
+
+	if (!qp->head) {
+		qp->head = new_node;
+		qp->tail = new_node;
+	} else {
+		qp->tail->next = new_node;
+		qp->tail = new_node;
+	}
+}

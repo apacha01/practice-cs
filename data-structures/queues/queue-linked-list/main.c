@@ -13,7 +13,7 @@ void apueue_print(Apueue *qp) {
 	ApueueNode *curr = qp->head;
 	while (curr) {
 		printf("%d", curr->data);
-		if (!curr->next->next) {
+		if (curr->next) {
 			printf(" -> ");
 		}
 		curr = curr->next;
@@ -25,6 +25,14 @@ void apueue_print(Apueue *qp) {
 // Main
 int main() {
 	Apueue *qptr = apueue_new();
+	apueue_print(qptr);
+
+	printf("\nEnqueueing 1 into qptr...");
+	apueue_enqueue(qptr, 1);
+	printf("\nEnqueueing 745 into qptr...");
+	apueue_enqueue(qptr, 745);
+	printf("\nEnqueueing 98456 into qptr...");
+	apueue_enqueue(qptr, 98456);
 	apueue_print(qptr);
 
 	apueue_destroy(qptr);
