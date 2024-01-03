@@ -22,13 +22,17 @@ void apash_print(ApashTable *hp) {
 
 // Main
 int main() {
-	ApashTable *aptr = apash_new(10);
-	ApashTable *aptr1 = apash_new(1);
-	ApashTable *aptr2 = apash_new(0);
+	ApashTable *hptr = apash_new(10);
+	ApashTable *hptr1 = apash_new(1);
+	ApashTable *hptr2 = apash_new(0);
 
-	apash_print(aptr);
-	apash_print(aptr1);
-	apash_print(aptr2);
+	apash_print(hptr);
+	apash_print(hptr1);
+	apash_print(hptr2);
+
+	printf("\nHashing key '%s' with capacity '%d': %d", "abc", hptr->__capacity, apash_hash("abc", hptr->__capacity));
+	printf("\nHashing key '%s' with capacity '%d': %d", "def", hptr->__capacity, apash_hash("def", hptr->__capacity));
+	printf("\nHashing key '%s' with capacity '%d': %d", "123", hptr->__capacity, apash_hash("123", hptr->__capacity));
 
 	return 0;
 }

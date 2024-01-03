@@ -33,7 +33,7 @@ ApashTable *apash_new(int capacity);
 void apash_destroy(ApashTable *hp);
 
 // hash given key, m is the size of the hash table
-int apash_hash(ApashTable *hp, char *k, int m);
+unsigned int apash_hash(char *k, int m);
 
 // adds key/value pair, if the key already exists, update value
 void apash_add(ApashTable *hp, char *key, int value);

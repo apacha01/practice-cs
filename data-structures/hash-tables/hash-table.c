@@ -23,3 +23,14 @@ void apash_destroy(ApashTable *hp) {
 	free(hp->data);
 	free(hp);
 }
+
+unsigned int apash_hash(char *key, int capacity) {
+	unsigned int hash = 0;
+
+	for (int i = 0; i < strlen(key); i++) {
+		hash += *(key + i);
+		hash *= 10000000000037;
+	}
+
+	return hash % capacity;
+}
