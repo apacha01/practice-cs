@@ -10,6 +10,11 @@
 		"type": "text"
 	},
 	{
+		"front": "What is amortized analysis?",
+		"back": "It is the process of evaluating the average of the performance of all of the operations on a large data set scales. So it gives the average performance, over time, of each operation in the worst-case.\nExample: In a dynamic array, if when pushing an element it causes a resize, then pushing is not O(1). But since this isn't done every time a push occurs, the cost is 'amortized' across all push operations in time for an average performance of O(1).",
+		"type": "text"
+	},
+	{
 		"front": "Time Complexity of a program",
 		"back": "It's how the time scales as the input size increases.",
 		"type": "text"
