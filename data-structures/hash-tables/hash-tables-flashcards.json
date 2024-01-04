@@ -1,0 +1,52 @@
+[
+	{
+		"front": "What is a hash table?",
+		"back": "A data structure that maps key to values (a solution for the dictionary abstract data type). It stores this key/value pairs using hashes to access (in a good implementation) the value in Θ(1). During lookup, the key is hashed (in O(1) time) and the resulting hash indicates where the corresponding value is stored.\nIt is said that these tables limit a universe (U) of keys into a fixed-sized (m) table, and if U is bigger than m, then there will most likely be collisions.",
+		"type": "text"
+	},
+	{
+		"front": "What does hashing mean?\nWhat is a hash function?",
+		"back": "A size function is a function that can be used to map any type of data of any size into a fixed-size value. You input a value, e.g. 'foo', and get a hash for that value, this process is called hashing.",
+		"type": "text"
+	},
+	{
+		"front": "What is a collision when hashing keys in a hash table?",
+		"back": "A collision is how it's called when two different keys end up with the same hash and point to the same space in the table.",
+		"type": "text"
+	},
+	{
+		"front": "What is chaining?",
+		"back": "Chaining is a method to solve collisions, where you use a linked list to store all the key/value pairs that collide in one same space. When hashing a key, check the space it hashes to, and if its a list then traverse it until the key is found.",
+		"type": "text"
+	},
+	{
+		"front": "What is open addressing?",
+		"back": "Open addressing is a method to solve collisions, where you don't allow two keys to map to the same spot. Therefore if there is a collision, keep moving forward until empty space is found. There's two implementation for this method:\n\t* Linear Probing\n\t* Double Hashing",
+		"type": "text"
+	},
+	{
+		"front": "What is linear probing?",
+		"back": "It's an open address implementation to avoid collisions, where if a key collides with another one, then move one space forward and check if it's empty. If it is store the value there, otherwise, keep moving forward.\nThis may cause primary clustering, which is a tendency to get long lines of used spaces.",
+		"type": "text"
+	},
+	{
+		"front": "What is double hashing?",
+		"back": "It's an open address implementation to avoid collisions, where if a key collides with another one, a second hash function is used to determine the offset to move.\nUnlike linear probing where you always move 1 space, this method makes the offset be key dependant and variable, so collisions are less likely, but primary clustering is still a possibility.",
+		"type": "text"
+	},
+	{
+		"front": "Average Time Complexity for ALL operations of a Hash Table",
+		"back": "Θ(1 + (n/m)).\n1 (hashing, which is constant) + the probability of a collision.\nSo if n ~= m a O(1) is achieved.",
+		"type": "text"
+	},
+	{
+		"front": "Worst case Time Complexity for ALL operations of a Hash Table",
+		"back": "O(n).\nIf chaining: all keys colliding in one place and a linked list traverse is needed.\nIf open address: all spaces are used and the last space in the table is found free after going through all others.",
+		"type": "text"
+	},
+	{
+		"front": "How to chose a good size (m)?",
+		"back": "* m = Θ(n), so collisions are unlikely.\n* For this you can:\n\t1) set m = n.\n\t2) if n > m then m*=2, if m <= n/4 then m /= 2.\n* To implement this, a new table has to be made with the new size m', which takes O(n + m + m'). m' to create the new table, m since you need to copy all spaces and n since you need to copy every item in every space.\nBy keeping m = Θ(n), collision probability are unlikely (with a good hash function) and all operations are Θ(1) time, so the cost of creating a new table is amortized.",
+		"type": "text"
+	}
+]
