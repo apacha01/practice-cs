@@ -79,3 +79,18 @@ void apash_add(ApashTable *hp, char *key, int value) {
 	printf("\n\n\nTable is full, can not add another item");
 	exit(1);
 }
+
+bool apash_exists(ApashTable *hp, char *key) {
+	checkKey(key);
+	unsigned int hash = apash_hash(key, hp->__capacity);
+
+	for (int i = 0; i < hp->__capacity; i++) {
+		hash = (hash + i) % hp->__capacity;
+
+		bool areKeysEqualLength = (hp->data + hash)->key ? strlen((hp->data + hash)->key) == strlen(key) : false;
+
+		if (areKeysEqualLength && strncmp((hp->data + hash)->key, key, strlen(key)) == 0) return true;
+	}
+
+	return false;
+}

@@ -50,5 +50,10 @@ int main() {
 	// apash_add(hptr, NULL, 987);	// THROWS ERROR: Key can not be NULL.
 	//													key: (null)
 
+	printf("\n\nDoes key '%s' exist? %s", "123", apash_exists(hptr, "123") ? "yes" : "no");
+	printf("\nDoes key '%s' exist? %s", "456", apash_exists(hptr, "456") ? "yes" : "no");
+	printf("\nDoes key '%s' exist? %s", "789", apash_exists(hptr, "789") ? "yes" : "no");
+	printf("\nDoes key '%s' exist? %s", "987", apash_exists(hptr, "987") ? "yes" : "no");
+
 	return 0;
 }
