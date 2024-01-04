@@ -11,10 +11,11 @@ void apash_print(ApashTable *hp) {
 	printf("Capacity: %d", hp->__capacity);
 	printf("\n[");
 	for (int i = 0; i < hp->__capacity; i++) {
-		printf("%d", (hp->data + i)->value);
-		if (i != hp->__capacity - 1) {
+		printf("\n\t{key: %s, value: %d}", (hp->data + i)->key, (hp->data + i)->value);
+		if (i != hp->__capacity - 1)
 			printf(",");
-		}
+		else
+			printf("\n");
 	}
 	printf("]");
 	printf("\n****************************************\n");
@@ -60,5 +61,13 @@ int main() {
 	printf("\nGetting key '%s': %d", "789", apash_get(hptr, "789"));
 	printf("\nGetting key '%s': %d", "987", apash_get(hptr, "987"));
 
+	printf("\n\nRemoving key '123' from hptr...");
+	apash_remove(hptr, "123");
+	printf("\n\nGetting key '%s': %d", "123", apash_get(hptr, "123"));
+	apash_print(hptr);	// 123 is still there but marked as free
+
+	apash_destroy(hptr);
+	apash_destroy(hptr1);
+	apash_destroy(hptr2);
 	return 0;
 }
