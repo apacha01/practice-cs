@@ -55,5 +55,10 @@ int main() {
 	printf("\nDoes key '%s' exist? %s", "789", apash_exists(hptr, "789") ? "yes" : "no");
 	printf("\nDoes key '%s' exist? %s", "987", apash_exists(hptr, "987") ? "yes" : "no");
 
+	printf("\n\nGetting key '%s': %d", "123", apash_get(hptr, "123"));
+	printf("\nGetting key '%s': %d", "456", apash_get(hptr, "456"));
+	printf("\nGetting key '%s': %d", "789", apash_get(hptr, "789"));
+	printf("\nGetting key '%s': %d", "987", apash_get(hptr, "987"));
+
 	return 0;
 }
