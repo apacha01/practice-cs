@@ -57,5 +57,29 @@ int main() {
 	printf("\nSearching 2 in arr2: %d", apinary_search(arr2, sizeArr2, 2));
 	printf("\nSearching 3 in arr2: %d", apinary_search(arr2, sizeArr2, 3));
 
+	printf("\n\nRecursively Searching 1 in arr1: %d", apinary_search_recursive(arr1, 0, sizeArr1 - 1, 1));
+	printf("\nRecursively Searching 1 in arr2: %d", apinary_search_recursive(arr2, 0, sizeArr2 - 1, 1));
+	printf("\nRecursively Searching 1 in arr3: %d", apinary_search_recursive(arr3, 0, sizeArr3 - 1, 1));
+	printf("\nRecursively Searching 1 in arr4: %d", apinary_search_recursive(arr4, 0, sizeArr4 - 1, 1));
+
+	printf("\n\nRecursively Searching 2 in arr1: %d", apinary_search_recursive(arr1, 0, sizeArr1 - 1, 2));
+	printf("\nRecursively Searching 2 in arr2: %d", apinary_search_recursive(arr2, 0, sizeArr2 - 1, 2));
+	printf("\nRecursively Searching 2 in arr3: %d", apinary_search_recursive(arr3, 0, sizeArr3 - 1, 2));
+	printf("\nRecursively Searching 2 in arr4: %d", apinary_search_recursive(arr4, 0, sizeArr4 - 1, 2));
+
+	printf("\n\nRecursively Searching 9 in arr4: %d", apinary_search_recursive(arr4, 0, sizeArr4 - 1, 9));
+	printf("\nRecursively Searching 5 in arr4: %d", apinary_search_recursive(arr4, 0, sizeArr4 - 1, 5));
+	printf("\nRecursively Searching 6 in arr4: %d", apinary_search_recursive(arr4, 0, sizeArr4 - 1, 6));
+	printf("\nRecursively Searching 10 in arr4: %d", apinary_search_recursive(arr4, 0, sizeArr4 - 1, 10));
+
+	printf("\n\nRecursively Searching 0 in arr1: %d", apinary_search_recursive(arr1, 0, sizeArr1 - 1, 0));
+	printf("\nRecursively Searching 1 in arr1: %d", apinary_search_recursive(arr1, 0, sizeArr1 - 1, 1));
+	printf("\nRecursively Searching 2 in arr1: %d", apinary_search_recursive(arr1, 0, sizeArr1 - 1, 2));
+
+	printf("\n\nRecursively Searching 0 in arr2: %d", apinary_search_recursive(arr2, 0, sizeArr2 - 1, 0));
+	printf("\nRecursively Searching 1 in arr2: %d", apinary_search_recursive(arr2, 0, sizeArr2 - 1, 1));
+	printf("\nRecursively Searching 2 in arr2: %d", apinary_search_recursive(arr2, 0, sizeArr2 - 1, 2));
+	printf("\nRecursively Searching 3 in arr2: %d", apinary_search_recursive(arr2, 0, sizeArr2 - 1, 3));
+
 	return 0;
 }

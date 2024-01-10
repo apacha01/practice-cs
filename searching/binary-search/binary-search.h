@@ -12,6 +12,6 @@
 int apinary_search(int arr[], int len, int target);
 
 // Performs binary search using recursion on sorted input of integers, returns index or -1 if not found
-int apinary_search_recursive(int arr[], int len, int target);
+int apinary_search_recursive(int arr[], int l, int h, int target);
 
 #endif	// APACHA_BINARY_SEARCH
