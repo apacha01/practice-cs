@@ -23,10 +23,15 @@ int main() {
 	int arr3[0] = {};
 	int arr4[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 
-	print_arr(arr1, sizeof(arr1) / sizeof(int));
-	print_arr(arr2, sizeof(arr2) / sizeof(int));
-	print_arr(arr3, sizeof(arr3) / sizeof(int));
-	print_arr(arr4, sizeof(arr4) / sizeof(int));
+	int sizeArr1 = sizeof(arr1) / sizeof(int);
+	int sizeArr2 = sizeof(arr2) / sizeof(int);
+	int sizeArr3 = sizeof(arr3) / sizeof(int);
+	int sizeArr4 = sizeof(arr4) / sizeof(int);
+
+	print_arr(arr1, sizeArr1);
+	print_arr(arr2, sizeArr2);
+	print_arr(arr3, sizeArr3);
+	print_arr(arr4, sizeArr4);
 
 	return 0;
 }
